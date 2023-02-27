@@ -10,11 +10,25 @@ export class SequelizeCardsRepository implements CardsRepository {
     return cards.map(SequelizeCardsMapper.toDomain);
   }
 
+  async findById(id: string): Promise<Card | null> {
+    const raw = await RawCard.findByPk(id);
+
+    if (!raw) return null;
+
+    return SequelizeCardsMapper.toDomain(raw);
+  }
+
   async create(card: Card): Promise<Card> {
     const raw = SequelizeCardsMapper.toSequelize(card);
 
     await RawCard.create(raw);
 
     return SequelizeCardsMapper.toDomain(raw);
+  }
+
+  async delete(id: string): Promise<void> {
+    const card = await RawCard.findByPk(id);
+
+    card?.destroy();
   }
 }

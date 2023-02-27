@@ -7,5 +7,6 @@ const cardsController = new CardsController();
 
 cardsRouter.get('/', cardsController.list);
 cardsRouter.post('/', cardsController.create);
+cardsRouter.delete('/:id', cardsController.delete);
 
 export { cardsRouter };

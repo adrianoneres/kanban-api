@@ -18,6 +18,7 @@ module.exports = {
         argsIgnorePattern: '^_',
       },
     ],
+    'arrow-parens': 'off',
     'class-methods-use-this': 'off',
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
