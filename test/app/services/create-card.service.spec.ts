@@ -11,6 +11,7 @@ describe('CreateCardService', () => {
     await createCardsService.execute({
       title: card.title.value,
       content: card.content.value,
+      list: card.list.value,
     });
 
     expect(inMemoreyCardsRepository.cards.length).toEqual(1);
