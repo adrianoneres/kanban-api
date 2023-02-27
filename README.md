@@ -24,7 +24,7 @@ npm run start:dev
 Para efetuar o deploy utilizando Docker não é necessário informar as variáveis `AUTH_DEFAULT_USERNAME` e
 `AUTH_DEFAULT_PASSWORD` no arquivo `.env`, pois estes valores serão supridos pela configuração do `docker-compose.yml`.
 
-Para prosseguir com essa abordagem, efetue os seguintes passos:
+Para prosseguir com esta abordagem, efetue os seguintes passos:
 
 1. Efetue o build da imagem:
 
