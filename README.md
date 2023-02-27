@@ -6,10 +6,10 @@ Esta é uma API simples de Kanban, para demonstrar uma arquitetura limpa e coesa
 
 Antes de efetuar o deploy, é necessário criar um novo arquivo `.env` na raiz do projeto e copiar o conteúdo do arquivo `.env.example` para ele. Substitua os valores sugeridos conforme a necessidade.
 
-Existem duas formas de efetuar o `deploy` da aplicação:
+Existem duas formas de efetuar o `deploy` da aplicação.
 
-1 - [Deploy local](#1.1.-deploy-local)
-2 - [Deploy com Docker](#1.2.-deploy-com-docker)
+1. [Deploy local](#11-deploy-local)
+2. [Deploy com Docker](#12-deploy-com-docker)
 
 ### 1.1. Deploy local
 
