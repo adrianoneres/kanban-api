@@ -6,7 +6,7 @@ import { cardsRouter } from './cards.routes';
 
 const routes = Router();
 
-routes.use('/sign-in', authenticationRouter);
+routes.use('/login', authenticationRouter);
 
 routes.use(ensureIsAuthenticated);
 
