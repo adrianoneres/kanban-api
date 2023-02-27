@@ -17,6 +17,7 @@ const config: Config = {
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
     prefix: '<rootDir>/',
   }),
+  setupFiles: ['reflect-metadata'],
 };
 
 export default config;

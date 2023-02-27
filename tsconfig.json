@@ -6,13 +6,15 @@
     "rootDir": "./src",
     "baseUrl": "./",
     "esModuleInterop": true,
+    "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "noImplicitAny": false,
     "paths": {
-      "@app/*": ["./src/app/*"]
+      "@app/*": ["./src/app/*"],
+      "@infra/*": ["./src/infra/*"]
     }
   },
   "include": ["src"]
