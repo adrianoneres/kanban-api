@@ -18,9 +18,9 @@ export class DeleteCardService {
   ) {}
 
   async execute({ id }: DeleteCardRequest): Promise<DeleteCardResponse> {
-    const card = await this.cardsRepository.findById(id);
+    const isExistentCard = await this.cardsRepository.findById(id);
 
-    if (!card) {
+    if (!isExistentCard) {
       throw new RegisterNotFoundError('card: not found');
     }
 

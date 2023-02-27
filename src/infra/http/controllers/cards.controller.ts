@@ -1,10 +1,11 @@
 import { Request, Response } from 'express';
+import { StatusCodes } from 'http-status-codes';
 import { container } from 'tsyringe';
 
 import { CreateCardService } from '@app/use-cases/create-card.service';
 import { ListCardsService } from '@app/use-cases/list-cards.service';
 import { DeleteCardService } from '@app/use-cases/delete-card.service';
-import { StatusCodes } from 'http-status-codes';
+import { UpdateCardService } from '@app/use-cases/update-card.service';
 import { CardViewModel } from '../view-models/card-view-model';
 
 export class CardsController {
@@ -31,6 +32,22 @@ export class CardsController {
     return response
       .status(StatusCodes.CREATED)
       .json(CardViewModel.toHttp(card));
+  }
+
+  public async update(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+    const { titulo, conteudo, lista } = request.body;
+
+    const updateCardService = container.resolve(UpdateCardService);
+
+    const card = await updateCardService.execute({
+      id,
+      title: titulo,
+      content: conteudo,
+      list: lista,
+    });
+
+    return response.status(StatusCodes.OK).json(CardViewModel.toHttp(card));
   }
 
   public async delete(request: Request, response: Response): Promise<Response> {

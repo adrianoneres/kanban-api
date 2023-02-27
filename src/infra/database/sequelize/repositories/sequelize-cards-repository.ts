@@ -26,6 +26,18 @@ export class SequelizeCardsRepository implements CardsRepository {
     return SequelizeCardsMapper.toDomain(raw);
   }
 
+  async save(card: Card): Promise<Card> {
+    const raw: any = await RawCard.findByPk(card.id);
+
+    raw.title = card.title.value;
+    raw.content = card.content.value;
+    raw.list = card.list.value;
+
+    raw?.save();
+
+    return SequelizeCardsMapper.toDomain(raw);
+  }
+
   async delete(id: string): Promise<void> {
     const card = await RawCard.findByPk(id);
 
