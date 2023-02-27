@@ -9,6 +9,7 @@ import { CardsRepository } from '@app/repositories/cards-respository';
 interface CreateCardRequest {
   title: string;
   content: string;
+  list: string;
 }
 
 type CreateCardResponse = Card;
@@ -23,11 +24,12 @@ export class CreateCardService {
   async execute({
     title,
     content,
+    list,
   }: CreateCardRequest): Promise<CreateCardResponse> {
     const card = new Card({
       title: new Title(title),
       content: new Content(content),
-      list: new List('to-do'),
+      list: new List(list),
     });
 
     return this.cardsRepository.create(card);

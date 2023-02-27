@@ -20,13 +20,14 @@ export class CardsController {
   }
 
   public async create(request: Request, response: Response): Promise<Response> {
-    const { titulo, conteudo } = request.body;
+    const { titulo, conteudo, lista } = request.body;
 
     const createCardService = container.resolve(CreateCardService);
 
     const card = await createCardService.execute({
       title: titulo,
       content: conteudo,
+      list: lista,
     });
 
     return response
