@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import '@infra/config/dotenv';
 import 'reflect-metadata';
 import 'express-async-errors';
 import express, { NextFunction, Request, Response } from 'express';
